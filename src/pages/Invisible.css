@@ -28,7 +28,7 @@
 }
 .header-card:hover{
     transition:0.3s;
-    scale: 1.05;
+    scale: 1.03;
 }
 .header-card:not(:hover){
     transition:0.3s;
@@ -53,7 +53,7 @@
 .human-card{
     display:block;
     margin-inline: auto;
-    margin-top: 105px;
+    margin-top: 61px;
     width:402px;
     height: auto;
     border: 1px solid grey;
@@ -75,4 +75,15 @@
 }
 .link-back:not(:hover){
     transition: 0.3s;
+}
+.title-info-box{
+    color:whitesmoke; 
+    border-bottom: 2px solid white; 
+    width:200px;
+    margin:0 auto; 
+    padding-bottom:10px;
+}
+
+.container-main-info{
+    text-align: center;
 }

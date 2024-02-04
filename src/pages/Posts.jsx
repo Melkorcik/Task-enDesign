@@ -1,5 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Contact from "../Components/Contact_Information";
+import Address from "../Components/Address";
+import Company from "../Components/Company";
+import UserName from "../Components/UserName";
 
 const Posts = () => {
     const{id} = useParams();
@@ -18,20 +22,18 @@ const Posts = () => {
                 posts && (
                     <>
                         <div className="human-card">
-                            <h1 className="name">{posts.name}</h1>
-                                <h3>Email: {posts.email}</h3>
-                                <span className="container-main-info">
-                                    <h3>Address: {posts.address.street}</h3>
-                                    <h3>City: {posts.address.city}</h3>
-                                    <h3>Phone: {posts.phone}</h3>
-                                    <h3>Website: {posts.website}</h3>
-                                    <h3>Company: {posts.company.name}</h3>
-                                </span>
-                                {/* <span className="container-additional-info">
-                                    <h3>Additional Information</h3>
-                                    <h4>Zipcode: {posts.address.zipcode}</h4>
-                                </span> */}
-                                <Link to="/" className="link-back"><strong>back</strong></Link>
+                            <UserName name={posts.name}/>
+                            <Contact email={posts.email} phone={posts.phone} website={posts.website}/>
+                            <Address 
+                                street={posts.address.street} 
+                                suite={posts.address.suite} 
+                                city={posts.address.city} 
+                                zipcode={posts.address.zipcode} 
+                                lat={posts.address.geo.lat} 
+                                lng={posts.address.geo.lng}
+                            />
+                            <Company name={posts.company.name} catchPhrase={posts.company.catchPhrase} bs={posts.company.bs}/>
+                            <Link to="/" className="link-back"><strong>back</strong></Link>
                         </div>
                     </>
                 )
