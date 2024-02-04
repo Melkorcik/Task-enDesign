@@ -1,0 +1,78 @@
+.card{
+    display: block;
+    margin-inline: auto;
+    margin-top: 19px;
+    width:300px;
+    height: auto;
+    text-align: center;
+    border: 1px solid grey;
+    background-color: rgb(99, 196, 196);
+}
+.card,.header-card{
+    padding: 19px;
+    border: 1px solid grey;
+    border-radius: 19px;
+}
+.header-card{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    background-color: rgb(192, 246, 246);
+}
+.name-Link{
+    text-decoration: none;
+    list-style-type: none;
+    color:rgb(175, 172, 172);
+}
+.box-text{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.header-card:hover{
+    transition:0.3s;
+    scale: 1.05;
+}
+.header-card:not(:hover){
+    transition:0.3s;
+    scale: 1;
+}
+.link-back{
+    display: block;
+    width: 105px;
+    height: 21px;
+    padding: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    text-decoration: none;
+    border: 1px solid grey;
+    border-radius: 19px;
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: 11px;
+    color: rgb(129, 126, 126);
+    background-color: rgb(115, 221, 217);
+}
+.human-card{
+    display:block;
+    margin-inline: auto;
+    margin-top: 105px;
+    width:402px;
+    height: auto;
+    border: 1px solid grey;
+    border-radius: 19px;
+    text-align: center;
+    background-color: rgb(152, 211, 211);
+}
+.name{
+    border: 1px solid grey;
+    border-radius: 19px;
+    padding: 10px;
+    width: 261px;
+    margin-left:61px;
+    background-color: whitesmoke;
+}
+.link-back:hover{
+    transition: 0.3s;
+    background-color: rgb(138, 236, 236);
+}
+.link-back:not(:hover){
+    transition: 0.3s;
+}
