@@ -5,7 +5,7 @@ const Links = ({id, name, title, body}) => {
     return(
         <div className="card">
          <header className="header-card">
-            <Link to={`/users/${id}`} className="name-Link"><li><strong>{name}</strong></li></Link>
+            <Link to={`/users/${id}`} className="name-Link"><li><strong>Author: {name}</strong></li></Link>
          </header>
          <span className="box-text">
             <h3>{title}</h3>
