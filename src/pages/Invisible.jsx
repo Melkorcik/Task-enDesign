@@ -3,40 +3,42 @@ import Links from "../Components/Links";
 
 const Invisible = () => {
     const[posts, setPosts] = useState([]);
-    
+    const[post, setPost] = useState([]);
+    const[user, setUser] = useState([]);
+
     useEffect(()=>{
-        async function FetchUsers(){            
-            try {
-                const requestUsers = await fetch('https://jsonplaceholder.typicode.com/users');
-                const responseUsers = await requestUsers.json();
-
-                const requestPosts = await fetch('https://jsonplaceholder.typicode.com/posts');
-                const responsePosts = await requestPosts.json();
-
-                //filter/find 
+        async function FetchUsers(){              
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(resp => resp.json())
+                .then(data => setUser(data))
+                .catch(err => console.error(err))
                 
-                setPosts(                    
-                    responsePosts.filter(obj=> {
-                        return responseUsers.find(obj2 => {
-                            if(obj.userId === obj2.id) return Object.assign(obj, obj2);
-                        });
-                    })                    
-                )
-            } catch (error) {
-                console.log(error);
-            }      
+            fetch('https://jsonplaceholder.typicode.com/posts')
+                .then(resp => resp.json())
+                .then(data => setPost(data))
+                .catch(err => console.error(err))        
         }
         FetchUsers();
     },[])
-         
+        
+    useEffect(() => {
+        const arr = post.map(e => { 
+            const author = user.find(u => u.id === e.userId);             
+            return Object.assign(e, author)
+        })
+        setPosts(arr)
+    },[post, user])
+
     return(
         <div>
-            {
-                posts.map(el => {
+            { 
+                posts.map((e, i) => {
                     return(                            
-                        <Links key={el.name} id={el.id} name={el.name} title={el.title} body={el.body}/>                            
-                    )
-                })
+                            <Links key={i} id={e.id} name={e.name} title={e.title} body={e.body}/>                            
+                        )
+                    }                        
+                )
+                                
             }
         </div>
     )
